@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+
+      <h1>Plans Index Page</h1>
+      <ul>
+        <% for (let plan of plans ) { %>
+          <li>
+            <a href="/plans/<%=plan._id%>">
+              <%= plan.planName %>
+          </li>
+       <% } %>
+      </ul>
+    </div>
+  </body>
+</html>

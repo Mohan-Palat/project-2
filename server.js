@@ -16,18 +16,21 @@ const PORT = process.env.PORT || 3000;
 //Database
 //___________________
 // How to connect to the database either via heroku or locally
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/'+ 'mohan-project-2';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/project-2-dev';
 // Connect to Mongo
-mongoose.connect(MONGODB_URI ,  { useNewUrlParser: true});
-/*
-  Add 
-  {
+mongoose.connect(
+  MONGODB_URI ,  
+  { 
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
     useCreateIndex: true,
   },
-*/
+  () => {
+    console.log('the connection with mongod is established at', MONGODB_URI);
+  }
+);
+
 // Error / success
 db.on('error', (err) => console.log(err.message + ' is Mongod not running?'));
 db.on('connected', () => console.log('mongo connected: ', MONGODB_URI));
@@ -45,12 +48,19 @@ app.use(express.json());// returns middleware that only parses JSON - may or may
 //use method override
 app.use(methodOverride('_method'));// allow POST, PUT and DELETE from a form
 //___________________
-// Routes
+// Routes Testing
 //___________________
 //localhost:3000
-app.get('/' , (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/' , (req, res) => {
+//   res.send('Hello World!');
+// });
+
+// CONTROLLERS
+
+const plansController = require('./controllers/plansController.js');
+app.use('/plans', plansController);
+
+
 //___________________
 //Listener
 //___________________
