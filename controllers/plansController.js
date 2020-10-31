@@ -28,6 +28,23 @@ plans.get('/:id', (req, res) => {
   });
 });
 
+// UPDATE
+plans.put('/:id', (req, res) => {
+  if (req.body.planIsInstitutional === 'on') {
+    req.body.planIsInstitutional = true;
+  } else {
+    req.body.planIsInstitutional = false;
+  }
+  Plan.findByIdAndUpdate(
+    req.params.id,
+    req.body,
+    { new: true },
+    (error, updatedModel) => {
+      res.redirect('/plans');
+    }
+  );
+});
+
 // CREATE
 
 plans.post('/', (req, res) => {
