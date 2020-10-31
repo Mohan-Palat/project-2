@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Plans Show Page</h1>
+      <%=plan.planName%> 
+      <% if(plan.planIsInstitutional === true) { %>
+          Plan is an Instituitional Plan.
+      <% } else { %>
+          It is <strong>NOT</strong> an Institutional Plan.
+      <% } %>
+      <br>
+      <button type="button" name="button"><a href="/plans/<%=plan._id%>/edit">Edit</a></button>
+      <br>
+      <br>
+      <form action="/plans/<%=plan._id%>?_method=DELETE" method="POST">
+        <input type="submit" value="DELETE"/>
+      </form>
+      <br>
+      <button type="button" name="button">
+        <a href="/plans">Back</a>
+      </button>
+    </div>
+  </body>
+</html>
