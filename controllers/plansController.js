@@ -2,6 +2,25 @@ const express = require('express');
 const Plan = require('../models/plan.js');
 const plans = express.Router();
 
+// NEW
+
+plans.get('/new', (req, res) => {
+    res.render('plans/new.ejs');
+  });
+  
+// CREATE
+
+plans.post('/', (req, res) => {
+    if (req.body.planIsInstitutional === 'on') {
+      req.body.planIsInstitutional = true;
+    } else {
+      req.body.planIsInstitutional = false;
+    }
+    Plan.create(req.body, (error, createdPlan) => {
+      res.redirect('/plans');
+    });
+  });
+
 // INDEX
 
 plans.get('/', (req, res) => {
