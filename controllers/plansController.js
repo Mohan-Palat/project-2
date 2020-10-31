@@ -18,6 +18,14 @@ plans.get('/:id/edit', (req, res) => {
   });
 });
 
+// DELETE
+
+plans.delete('/:id', (req, res) => {
+  Plan.findByIdAndRemove(req.params.id, (err, deletedPlan) => {
+    res.redirect('/plans');
+  });
+});
+
 // SHOW
 
 plans.get('/:id', (req, res) => {
