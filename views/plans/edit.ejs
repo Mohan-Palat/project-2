@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Plans Edit Page</h1>
+      <form action="/plans/<%=plan.id%>?_method=PUT" method="POST">
+        <label for="planName">Plan Name:</label>
+        <input type="text" name="planName" value="<%=plan.planName%>" />
+        <br/>
+        <div>
+          <label for="planIsInstitutional">
+            <input
+              type="checkbox"
+              id="planIsInstitutional"
+              name="planIsInstitutional"
+              <% if(plan.planIsInstitutional === true){ %>
+                checked
+              <% } %>
+            />
+            <span>Plan is an Instituitional Plan</span>
+          </label>
+        </div>
+        <br>
+        <input type="submit" value="Submit">
+      <form>
+      <button type="button" name="button">
+        <a href="/plans">Back</a>
+      </button>
+    </div>
+  </body>
+</html>

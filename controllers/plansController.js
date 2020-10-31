@@ -8,6 +8,16 @@ plans.get('/new', (req, res) => {
     res.render('plans/new.ejs');
   });
   
+// EDIT
+
+plans.get('/:id/edit', (req, res) => {
+  Plan.findById(req.params.id, (error, foundPlan) => {
+    res.render('plans/edit.ejs', {
+      plan: foundPlan,
+    });
+  });
+});
+
 // SHOW
 
 plans.get('/:id', (req, res) => {
