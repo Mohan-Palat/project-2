@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <%- include ('../partials/head.ejs') %>
+  </head>
+  <body>
+    <nav>
+      <%- include ('../partials/nav.ejs') %>
+    </nav>
+    <div class="container">
+      <h1>Participants New Page</h1>
+      <form action="/participants" method="POST">   
+        <label for="partName">Participant Name:</label>
+        <input type="text" name="partName" required />
+        <label for="partSsn">Participant SSN:</label>
+        <input type="text" name="partSsn" required />
+        <br/>
+          <div>
+            <label for="partIsHce">
+              <input type="checkbox" id="partIsHce" name="partIsHce" />
+              <span>Is the participant a Highly Compensated Employee</span>
+            </label>
+          </div>
+          <br>
+          <div>
+            <label for="partIsActive">
+              <input type="checkbox" id="partIsActive" name="partIsActive" />
+              <span>Is the participant an Active Participant</span>
+            </label>
+          </div>
+          <br>
+        <input type="submit" value="Submit">
+      <form>
+    </div>
+  </body>
+</html>

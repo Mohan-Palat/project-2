@@ -37,6 +37,7 @@ plans.get('/:id', (req, res) => {
 });
 
 // UPDATE
+
 plans.put('/:id', (req, res) => {
   if (req.body.planIsInstitutional === 'on') {
     req.body.planIsInstitutional = true;
