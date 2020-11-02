@@ -1,15 +1,23 @@
 const participants = require('express').Router();
 const Participant = require('../models/participant');
 
+const isAuthenticated = (req, res, next) => {
+  if (req.session.currentUser) {
+    return next();
+  } else {
+    res.redirect('/sessions/new');
+  }
+};
+
 // NEW
 
 participants.get('/new', (req, res) => {
-    res.render('participants/new.ejs');
+    res.render('participants/new.ejs', { currentUser: req.session.currentUser });
   });
   
 // CREATE
 
-participants.post('/', (req, res) => {
+participants.post('/', isAuthenticated, (req, res) => {
     if (req.body.partIsHce === 'on') {
         req.body.partIsHce = true;
       } else {
@@ -31,7 +39,8 @@ participants.get('/', (req, res) => {
     Participant.find({}, (error, allParticipants) => {
         console.log(allParticipants)
       res.render('participants/index.ejs', {
-        participants: allParticipants
+        participants: allParticipants,
+        currentUser: req.session.currentUser,
       });
     });
   });
