@@ -1,15 +1,9 @@
 <a href="/plans" class="brand-logo left">ACME Retirement Investments</a>
-<ul id="dropdown1" class="dropdown-content">
-  <li><a href="/plans">All Plans</a></li>
-  <li><a href="/plans/new">Create a new Plan</a></li>
-</ul>
-<ul id="dropdown2" class="dropdown-content">
-  <li><a href="/participants">All Participants</a></li>
-  <li><a href="/participants/new">Create a new Participant</a></li>
-</ul>
 <ul class="right">
-  <li><a href="" class="dropdown-button" data-activtes="dropdown1">Plan<i class="material-icons right">arrow_drop_down</i></a></li>
-  <li><a href="" class="dropdown-button" data-activtes="dropdown2">Participant<i class="material-icons right">arrow_drop_down</i></a></li>
+  <li><a href="/plans/new">Create a new Plan</a></li>
+  <li><a href="/participants/new">Create a new Participant</a></li>
+  <li><a href="/plans">All Plans</a></li>
+  <li><a href="/participants">All Participants</a></li>
   <% if (currentUser) { %>
     <li>Hi <%= currentUser.username %></li>
     <li>
