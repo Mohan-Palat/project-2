@@ -11,12 +11,14 @@
       <h1>Participant Index Page</h1>
       <ul>
         <% for (let participant of participants ) { %>
-          <li>
-            <a href="/participants/<%=participant._id%>">
+          <h5>
+            <a class="z-depth-3" href="/participants/<%=participant._id%>">
               <%= participant.partName %>
-          </li>
+            </h5>
        <% } %>
       </ul>
     </div>
   </body>
 </html>
+
+

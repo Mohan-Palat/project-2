@@ -12,10 +12,10 @@
       <h1>Plans Index Page</h1>
       <ul>
         <% for (let plan of plans ) { %>
-          <li>
-            <a href="/plans/<%=plan._id%>">
-              <%= plan.planName %>
-          </li>
+          <h5>
+            <a class="z-depth-3" href="/plans/<%=plan._id%>">
+              <%= plan.planName.padEnd(100 - plan.planName.length, ' ') %>
+            </h5>
        <% } %>
       </ul>
     </div>

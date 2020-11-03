@@ -1,14 +1,21 @@
 <a href="/plans" class="brand-logo left">ACME Retirement Investments</a>
-<ul class="right">
-  <li><a href="/plans/new">Create a new Plan</a></li>
-  <li><a href="/participants/new">Create a new Participant</a></li>
+<ul id="dropdown1" class="dropdown-content">
   <li><a href="/plans">All Plans</a></li>
+  <li><a href="/plans/new">Create a new Plan</a></li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
   <li><a href="/participants">All Participants</a></li>
+  <li><a href="/participants/new">Create a new Participant</a></li>
+</ul>
+<ul class="right">
+  <li><a href="" class="dropdown-button" data-activtes="dropdown1">Plan<i class="material-icons right">arrow_drop_down</i></a></li>
+  <li><a href="" class="dropdown-button" data-activtes="dropdown2">Participant<i class="material-icons right">arrow_drop_down</i></a></li>
   <% if (currentUser) { %>
-    <li>Welcome <%= currentUser.username %></li>
+    <li>Hi <%= currentUser.username %></li>
     <li>
       <form action="/sessions?_method=DELETE" method="POST">
-        <input type="submit" value="Log Out" class="btn-small red" />
+        <!-- <input type="submit" value="Log Out" class="btn-small red" /> -->
+        <button class="btn waves-effect waves-light red">Log Out</button>
       </form>
     </li>
     <% } else { %>
