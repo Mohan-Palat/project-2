@@ -1,5 +1,5 @@
 <a href="/plans" class="brand-logo left hide-on-med-and-down">ACME Retirement Investments</a>  
-<a href="#" data-activates="mobile-demo" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
+<a href="#" data-activates="mobile-collapse" class="button-collapse hide-on-large-only"><i class="material-icons">menu</i></a>
 <ul class="right hide-on-med-and-down">
   <li><a href="/plans/new">Create a new Plan</a></li>
   <li><a href="/participants/new">Create a new Participant</a></li>
@@ -31,7 +31,7 @@
 <!-- MOBILE COLLAPSE FOR RESPONSIVENESS -->
 <nav>
   <div class="nav-wrapper hide-on-med-and-up">
-    <ul class="side-nav" id="mobile-demo">
+    <ul class="side-nav" id="mobile-collapse">
       <li><a href="/plans/new">Create a new Plan</a></li>
       <li><a href="/participants/new">Create a new Participant</a></li>
       <li><a href="/plans">All Plans</a></li>
@@ -44,7 +44,18 @@
   src="https://cdnjs.cloudfare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js">
 </script>
 <script>
-  $(".button-collapse").sideNav();
+  document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.sidenav');
+    var instances = M.Sidenav.init(elems, options);
+  });
+  // Initialize collapsible (uncomment the lines below if you use the dropdown variation)
+  // var collapsibleElem = document.querySelector('.collapsible');
+  // var collapsibleInstance = M.Collapsible.init(collapsibleElem, options);
+  // Or with jQuery
+  $(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+  // $(".button-collapse").sideNav();
 </script>
 
 
