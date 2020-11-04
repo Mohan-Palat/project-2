@@ -83,6 +83,8 @@ const sessionsController = require('./controllers/sessions_controller.js');
 app.use('/sessions', sessionsController);
 const participantsController = require('./controllers/participantsController.js');
 app.use('/participants', participantsController);
+const planEmailsController = require('./controllers/planEmailsController.js');
+app.use('/emails', planEmailsController);
 
 // ROUTES
 
