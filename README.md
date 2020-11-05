@@ -185,23 +185,23 @@ Heroku Cloud Application Platform for Deploment
 
 ## 5. User Stories and their implementation status
 
-* As a user, I should be able list all the retirement plans of 🌅 ACME Retirement Investments *** Status: Complete ***
-* As a user, I should be able list all the participants of 🌅 ACME Retirement Investments *** Status: Complete ***
-* As a user, I should be able to click on plan and be able to view details (show page) *** Status: Complete ***
-* As a user, when I am on the above show page, I should be able to edit and save the changes *** Status: Complete ***
-* As a user, when I am on the above show page, I should be able delete the plan *** Status: Complete ***
-* As a user, when I am on the above show page, I should be able to go back to plan list page without making any changes *** Status: Complete ***
-* As a user, I should be able to get a web page where I can add a new plan *** Status: Complete ***
-* As a user, I should be should be able to enter a Sponsor eMail for the plan with eMail validation *** Status: Complete ***
-* As a user, I should be able to view the same header / Layout look and feel for every page I visit with ACME's Sunrise logo visible *** Status: Complete ***
-* As a user, when I visit the Participant and Plan Index pages, the listing must have an embossed feeling with a shadow *** Status: Complete ***
-* As a user, when I do data entry the toggle (Y/N) fields must display as check boxes *** Status: Complete ***
-* As a user, I would like a button menu at the bottom which will make it easy for me if I use a tablet or my cell (be responsive) *** Status: Complete ***
+* As a user, I should be able list all the retirement plans of 🌅 ACME Retirement Investments ** Status: Complete **
+* As a user, I should be able list all the participants of 🌅 ACME Retirement Investments ** Status: Complete **
+* As a user, I should be able to click on plan and be able to view details (show page) ** Status: Complete **
+* As a user, when I am on the above show page, I should be able to edit and save the changes ** Status: Complete **
+* As a user, when I am on the above show page, I should be able delete the plan ** Status: Complete **
+* As a user, when I am on the above show page, I should be able to go back to plan list page without making any changes ** Status: Complete **
+* As a user, I should be able to get a web page where I can add a new plan ** Status: Complete **
+* As a user, I should be should be able to enter a Sponsor eMail for the plan with eMail validation ** Status: Complete **
+* As a user, I should be able to view the same header / Layout look and feel for every page I visit with ACME's Sunrise logo visible ** Status: Complete **
+* As a user, when I visit the Participant and Plan Index pages, the listing must have an embossed feeling with a shadow ** Status: Complete **
+* As a user, when I do data entry the toggle (Y/N) fields must display as check boxes ** Status: Complete **
+* As a user, I would like a button menu at the bottom which will make it easy for me if I use a tablet or my cell (be responsive) ** Status: Complete **
 
 ## 6. Compliance to MVP (Minimum Viable Product) Requirement 🔴 
 
-* A working full-stack application, built by you, using Node.js, MongoDB, Express and EJS *** Complete ***
-Adhere to the MVC file structure: Models, Views, Controllers *** Followed all the MVC requirements. Folders were structured as below such that there is no clutter ***
+* A working full-stack application, built by you, using Node.js, MongoDB, Express and EJS ** Complete **
+Adhere to the MVC file structure: Models, Views, Controllers ** Followed all the MVC requirements. Folders were structured as below such that there is no clutter **
 ```
 ./images
 ./populate
@@ -216,10 +216,10 @@ Adhere to the MVC file structure: Models, Views, Controllers *** Followed all th
 ./views/users
 ./views/partials
 ```
-* At least one model with all 7 RESTful routes and full CRUD. *** Plan model was created with all 7 RESTful routes and full CRUD ***
-* At least 2 models that are associated in some way (e.g. one-to-many, many-to-many, etc) *** Plan and Participant models with association by reference. Fund model created with embedded association. ***  
-* ❗ A git repository not inside the class repo. *** [My Personal Repo](https://github.com/Mohan-Palat/project-2/) ***
-* At least one Github commit per day. *** Multiple commits at every logical checkpoint as below ***
+* At least one model with all 7 RESTful routes and full CRUD. ** Plan model was created with all 7 RESTful routes and full CRUD **
+* At least 2 models that are associated in some way (e.g. one-to-many, many-to-many, etc) ** Plan and Participant models with association by reference. Fund model created with embedded association. **  
+* ❗ A git repository not inside the class repo. ** [My Personal Repo](https://github.com/Mohan-Palat/project-2/) **
+* At least one Github commit per day. ** Multiple commits at every logical checkpoint as below **
 ```
 Commit 01. Initial Commit
 Commit 02. Express Server Basic Setup Complete
@@ -242,17 +242,17 @@ Commit 18. Added Fund model with embedded association for Daily Price Model
 Commit 19. Updates to Nav.ejs
 Commit 20. ACME Sunrise After Retirement Logo 🌅 and README.md
 ```
-* At least 10 User Stories *** Worked on 12 User Stories (Please refer to Item # 5) *** 
-* Be deployed online and accessible to the public via Heroku *** Complete ***
+* At least 10 User Stories ** Worked on 12 User Stories (Please refer to Item # 5) ** 
+* Be deployed online and accessible to the public via Heroku ** Complete **
 
 ## 7. Compliance to Stretch Goals, Recommended Features 🔵 
 
-* Add additional relationships *** Added Fund Model with an embedded association ***
-* Include sign up/log in functionality, with encrypted passwords & an authorization flow *** Complete ***
-* Use EJS Partials *** Complete ***
-* Include portfolio-quality styling *** Almost ***
-* Use a CSS framework like Bootstrap *** Using Materialize Framework ***
-* Incorporate Google Maps *** Did not complete ***
+* Add additional relationships ** Added Fund Model with an embedded association **
+* Include sign up/log in functionality, with encrypted passwords & an authorization flow ** Complete **
+* Use EJS Partials ** Complete **
+* Include portfolio-quality styling ** Almost **
+* Use a CSS framework like Bootstrap ** Using Materialize Framework **
+* Incorporate Google Maps ** Did not complete **
 
 ## 8. Unsolved Issues and Future Enhancements
 
