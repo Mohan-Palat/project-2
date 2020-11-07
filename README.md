@@ -14,6 +14,7 @@
 * Mongoose ODM (Object Data Modeling) library for MongoDB and Node.js
 * MongoDB Atlas to connect to cloud service provider of choice - AWS
 * Heroku Cloud Application Platform for Deployment
+* Deployed at https://mohan-project-2.herokuapp.com/
 
 ## 2. Learning Experience
 
@@ -261,6 +262,131 @@ Commit 20. ACME Sunrise After Retirement Logo 🌅 and README.md
 * Currently there is an issue with the responsive presentation of the UI - The top right menu has been coded to disappear and a hamburger menu appears when size becomes tablet size or lower. If you click the hamburger menu a pullin menu is supposed to slide in from left side. Instead of the slide in menu I am getting the regular menu appearing below the hamburger icon. For now there is a cluster of buttons at the bottom which can be used on tablets and cell phones.  
 ![Plan Index Page](./images/PlansIndex.jpg)  
 
+## 9. Mongoose Models and MongoDB Associations used
+
+Plan to Participant is one to many relationship
+To match with relational databases, implemented with referenced association
+Fund to Price is also one to many implemented with embedded form of association
+
+```JavaScript
+// ****************************************
+// *              PLAN                    *
+// ****************************************
+
+// PARTICIPANT WITH PLAN ASSOCIATION - REFERENCED
+
+const mongoose = require('mongoose');
+
+const planSchema = new mongoose.Schema(
+  {
+    planName: {
+        type: String,
+        required: true
+    },       
+    planIsInstitutional: {
+        type: Boolean,
+        default: false
+    },
+    participants: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Participant',
+      },
+    ],
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model('Plan', planSchema);
+
+// ****************************************
+// *           PARTICIPANT                *
+// ****************************************
+
+const mongoose = require('mongoose');
+
+const participantSchema = new mongoose.Schema(
+  {
+    partName: {
+        type: String,
+        required: true,
+      },        
+    partSsn: {
+        type: String,
+        default: '',
+      },
+    partIsHce: {
+        type: Boolean,
+        default: false,
+      },      
+    partIsActive: {
+        type: Boolean,
+        default: true,
+      },      
+  },
+  { timestamps: true }
+);
+
+module.exports = mongoose.model('Participant', participantSchema);
+
+// ****************************************
+// *              FUND PRICE              *
+// ****************************************
+
+const mongoose = require('mongoose');
+
+// FUND DAILY PRICE
+
+const dailyPriceSchema = new mongoose.Schema({
+  priceDate: {type: Date, default: Date.now},
+  price: Number
+});
+
+// ****************************************
+// *              FUND                    *
+// ****************************************
+
+// FUND WITH DAILY PRICE ASSOCIATION - EMBEDDED
+
+const fundSchema = new mongoose.Schema({
+  name: String,
+  // embed prices in fund
+  prices: [dailyPriceSchema],
+});
+
+// FUND PRICE GETTER
+
+dailyPriceSchema.path('price').get(function(num) {
+  return (num / 100).toFixed(2);
+});
+
+// FUND PRICE SETTER
+
+dailyPriceSchema.path('price').set(function(num) {
+  return num * 100;
+});
+
+module.exports = mongoose.model('Fund', fundSchema);
+
+/* 
+----------------------------------------------
+Getter and Setter could also be setup thusly..
+----------------------------------------------
+
+const dailyPriceSchema = new mongoose.Schema({
+  priceDate : {type: Date, default: Date.now},
+  price     : {type: Number, get: getPrice, set: setPrice }
+});
+
+function getPrice(num){
+    return (num/100).toFixed(2);
+}
+
+function setPrice(num){
+    return num*100;
+}
+*/
+```
 
 
 
