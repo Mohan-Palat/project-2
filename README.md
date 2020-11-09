@@ -6,7 +6,7 @@
 
 * HTML, CSS, JavaScript, Google Chrome
 * Express Node.js Web App Framework, 
-* EJS Templates to implement MVC (Model–view–controller) design Pattern
+* EJS Templates to implement MVC (Model–view–controller) design Pattern, EJS Partials
 * REST (Representational state transfer) Architecture using JavaScript and JSON
 * Materialize Framework for styling (Based on Google Material Design) 
 * Object-oriented, dynamic, scalable NoSQL database MongoDB on Cloud 
@@ -258,7 +258,39 @@ Commit 20. ACME Sunrise After Retirement Logo 🌅 and README.md
 
 ## 8. Unsolved Issues and Future Enhancements
 
-* Fund Model was added. The model needs to be associated to Plans and Participants and eventually provide pages using Mongoose .populate() method to a) Given a prticipant, list all associated plans and funds b) Given a plan, provide a list of available funds. 
+* Fund Model was added. The model needs to be associated to Plans and Participants and eventually provide pages using Mongoose .populate() method to a) Given a prticipant, list all associated plans and funds b) Given a plan, provide a list of available funds. The JavaScript code for it is already created - ./populate/populatePlan.js as below
+```JavaScript
+const mongoose = require('mongoose');
+const Plan = require('../models/plan');
+const Participant = require('../models/participant');
+const mongoURI = 'mongodb://localhost/project-2-dev';
+mongoose.connect(
+  mongoURI,
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+  },
+  () => {
+    console.log('the connection with mongod is established');
+  }
+);
+Plan.findOne({ planName: 'Mom and Pop 401k Plan' })
+  .populate('participants') // <- pull in part data
+  .exec((err, plan) => {
+    console.log(plan);
+    if (err) {
+      return console.log(err);
+    }
+    if (plan.participants.length > 0) {
+      console.log(`Plan: ${plan.planName} Participant: ${plan.participants[0].partName}`);
+    } else {
+      console.log(`${plan.planName} has no participants.`);
+    }
+    console.log(`Final. Plan ${plan}`);
+  });
+```
 * Currently there is an issue with the responsive presentation of the UI - The top right menu has been coded to disappear and a hamburger menu appears when size becomes tablet size or lower. If you click the hamburger menu a pullin menu is supposed to slide in from left side. Instead of the slide in menu I am getting the regular menu appearing below the hamburger icon. For now there is a cluster of buttons at the bottom which can be used on tablets and cell phones.  
 ![Plan Index Page](./images/PlansIndex.jpg)  
 
